@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CategoryController;
 
 /*
@@ -16,33 +17,12 @@ use App\Http\Controllers\CategoryController;
 |
 */
 
-// Route::get('{any?}', function () {
-// 	return view('application');
-// })->where('any', '.*');
-
 Route::get('/login', function () {
 	return view('login');
 })->name('login');
 
-Route::post('/login', function (Request $request) {
-	$credentials = $request->only('email', 'password');
-	// Attempt to authenticate the user
-	if (auth()->guard('admin')->attempt($credentials)) {
-		// Check if the user is enabled
-		$user = auth()->guard('admin')->user();
-		if ($user && !$user->enabled) {
-			return redirect()->back()->withErrors([
-				'msg' => 'Your account is not enabled.'
-			]);
-		}
 
-		return redirect('/');
-	}
-
-	return redirect()->back()->withErrors([
-		'msg' => 'Invalid email or password'
-	]);
-})->name('login');
+Route::post('login', [AuthController::class, 'checkLogin']);
 
 
 

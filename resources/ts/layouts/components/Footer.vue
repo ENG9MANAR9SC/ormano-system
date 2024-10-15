@@ -16,7 +16,7 @@
         target="_blank"
         rel="noopener noreferrer"
         class="text-primary ms-1"
-      >Pixinvent</a>
+      >Manar Abo Alkheir</a>
     </span>
     <!-- 👉 Footer: right content -->
     <span class="d-md-flex gap-x-4 text-primary d-none">

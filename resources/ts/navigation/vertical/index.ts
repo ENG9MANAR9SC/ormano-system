@@ -1,15 +1,11 @@
 import type { VerticalNavItems } from '@/@layouts/types'
 
 export default [
+  { heading: 'Dashboard' },
   {
     title: 'Home',
     to: { name: 'index' },
     icon: { icon: 'tabler-smart-home' },
-  },
-  {
-    to: {name: 'user'},
-    icon: {icon: 'tabler-user'},
-    title: 'Patients',
   },
   {
     to: {name: 'appointment'},
@@ -17,42 +13,45 @@ export default [
     title: 'Appointments',
   },
   {
-    to: {name: 'invoice'},
-    icon: {icon:'tabler-file-text'},
-    title: 'Invoices',
+    to: {name: 'user'},
+    icon: {icon:'tabler-calendar-check'},
+    title: 'Users',
   },
   {
-    to: {name: 'payment'},
-    icon: {icon:'tabler-file-arrow-left'},
-    title: 'Payments',
+    to: {name: 'case'},
+    icon: {icon:'tabler-briefcase'},
+    title: 'Cases',
   },
-  {
-    to: {name: 'expense'},
-    icon: {icon:'tabler-file-arrow-right'},
-    title: 'Expenses',
-  },
+
   { heading: 'Settings' },
 
   {
-    title: 'Categories',
-    to: { name: 'category' },
-    icon: {icon: 'tabler-packages'},
-  },
-  {
-    icon: {icon:'tabler-device-mobile'},
-    to: { name: 'device' },
-    title: 'Devices',
-  },
-  {
-    to: {name:'referral'},
-    icon:{icon: 'tabler-users'},
-    title: 'Referrals',
+    children: [
+      {
+        to: {name:'report-general'},
+        title: 'General',
+      },
+      // {
+      //   to: {name: 'country'},
+      //   title: 'Country',
+      // },
+      // {
+      //   to: {name: 'currency'},
+      //   title: 'Currency',
+      // },
+      // {
+      //   to: {name: 'court'},
+      //   title: 'Courts',
+      // },
+    ],
+    icon: {icon: 'tabler-settings'},
+    title: 'Settings',
   },
   {
     children: [
       {
         to: {name: 'admin'},
-        title: 'Team',
+        title: 'Admin',
       },
       {
         to: {name: 'role'},
@@ -61,6 +60,24 @@ export default [
     ],
     icon: {icon:'tabler-users'},
     title: 'Employees',
+  },
+  {
+    children: [
+      // {
+      //   to: {name:'order'},
+      //   title: 'Orders',
+      // },
+      {
+        to: {name: 'payment'},
+        title: 'Payments',
+      },
+      {
+        to: {name: 'expense'},
+        title: 'Expenses',
+      },
+    ],
+    icon: {icon: 'tabler-brand-mastercard'},
+    title: 'Financials',
   },
   {
     children: [

@@ -10,6 +10,8 @@ use Illuminate\Support\Facades\Hash;
 class AuthController extends Controller
 {
   //
+
+
   public function checkLogin()
   {
 
@@ -66,7 +68,7 @@ class AuthController extends Controller
 
       $user['token'] = auth()->guard('admin')->attempt($credentials, $remember);
       $user['token_type'] = 'bearer';
-      return redirect()->route('/dashboard');
+      return view('/application');
     }
   }
 

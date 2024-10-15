@@ -900,27 +900,26 @@
   "resolved" "https://registry.npmjs.org/@vitejs/plugin-vue/-/plugin-vue-4.2.1.tgz"
   "version" "4.2.1"
 
-"@volar/language-core@~1.11.1", "@volar/language-core@1.11.1":
-  "integrity" "sha512-dOcNn3i9GgZAcJt43wuaEykSluAuOkQgzni1cuxLxTV0nJKanQztp7FxyswdRILaKH+P2XZMPRp2S4MV/pElCw=="
-  "resolved" "https://registry.npmjs.org/@volar/language-core/-/language-core-1.11.1.tgz"
-  "version" "1.11.1"
+"@volar/language-core@~2.4.1", "@volar/language-core@2.4.6":
+  "integrity" "sha512-FxUfxaB8sCqvY46YjyAAV6c3mMIq/NWQMVvJ+uS4yxr1KzOvyg61gAuOnNvgCvO4TZ7HcLExBEsWcDu4+K4E8A=="
+  "resolved" "https://registry.npmjs.org/@volar/language-core/-/language-core-2.4.6.tgz"
+  "version" "2.4.6"
   dependencies:
-    "@volar/source-map" "1.11.1"
+    "@volar/source-map" "2.4.6"
 
-"@volar/source-map@~1.11.1", "@volar/source-map@1.11.1":
-  "integrity" "sha512-hJnOnwZ4+WT5iupLRnuzbULZ42L7BWWPMmruzwtLhJfpDVoZLjNBxHDi2sY2bgZXCKlpU5XcsMFoYrsQmPhfZg=="
-  "resolved" "https://registry.npmjs.org/@volar/source-map/-/source-map-1.11.1.tgz"
-  "version" "1.11.1"
-  dependencies:
-    "muggle-string" "^0.3.1"
+"@volar/source-map@2.4.6":
+  "integrity" "sha512-Nsh7UW2ruK+uURIPzjJgF0YRGP5CX9nQHypA2OMqdM2FKy7rh+uv3XgPnWPw30JADbKvZ5HuBzG4gSbVDYVtiw=="
+  "resolved" "https://registry.npmjs.org/@volar/source-map/-/source-map-2.4.6.tgz"
+  "version" "2.4.6"
 
-"@volar/typescript@~1.11.1":
-  "integrity" "sha512-iU+t2mas/4lYierSnoFOeRFQUhAEMgsFuQxoxvwn5EdQopw43j+J27a4lt9LMInx1gLJBC6qL14WYGlgymaSMQ=="
-  "resolved" "https://registry.npmjs.org/@volar/typescript/-/typescript-1.11.1.tgz"
-  "version" "1.11.1"
+"@volar/typescript@~2.4.1":
+  "integrity" "sha512-NMIrA7y5OOqddL9VtngPWYmdQU03htNKFtAYidbYfWA0TOhyGVd9tfcP4TsLWQ+RBWDZCbBqsr8xzU0ZOxYTCQ=="
+  "resolved" "https://registry.npmjs.org/@volar/typescript/-/typescript-2.4.6.tgz"
+  "version" "2.4.6"
   dependencies:
-    "@volar/language-core" "1.11.1"
+    "@volar/language-core" "2.4.6"
     "path-browserify" "^1.0.1"
+    "vscode-uri" "^3.0.8"
 
 "@vue-macros/common@~1.3.0":
   "integrity" "sha512-oRK9vdKryXtJbfucRla8XdnQiWVVNHEBid0waacdfMJn+LOunWeU/3k8VoZZc328HmmZj69MGkUoMWixsHCHGg=="
@@ -984,7 +983,7 @@
     "estree-walker" "^2.0.2"
     "source-map-js" "^1.2.0"
 
-"@vue/compiler-dom@^3.3.0":
+"@vue/compiler-dom@^3.4.0":
   "integrity" "sha512-9G6PbJ03uwxLHKQ3P42cMTi85lDRvGLB2rSGOiQqtXELat6uI4n8cNz9yjfVHRPIu+MsK6TE418Giruvgptckg=="
   "resolved" "https://registry.npmjs.org/@vue/compiler-dom/-/compiler-dom-3.5.12.tgz"
   "version" "3.5.12"
@@ -1056,25 +1055,32 @@
     "@vue/compiler-dom" "3.3.0-beta.3"
     "@vue/shared" "3.3.0-beta.3"
 
+"@vue/compiler-vue2@^2.7.16":
+  "integrity" "sha512-qYC3Psj9S/mfu9uVi5WvNZIzq+xnXMhOwbTFKKDD7b1lhpnn71jXSFdTQ+WsIEk0ONCd7VV2IMm7ONl6tbQ86A=="
+  "resolved" "https://registry.npmjs.org/@vue/compiler-vue2/-/compiler-vue2-2.7.16.tgz"
+  "version" "2.7.16"
+  dependencies:
+    "de-indent" "^1.0.2"
+    "he" "^1.2.0"
+
 "@vue/devtools-api@^6.2.1", "@vue/devtools-api@^6.4.5", "@vue/devtools-api@^6.5.0":
   "integrity" "sha512-o9KfBeaBmCKl10usN4crU53fYtC1r7jJwdGKjPT24t348rHxgfpZ0xL3Xm/gLUYnc0oTp8LAmrxOeLyu6tbk2Q=="
   "resolved" "https://registry.npmjs.org/@vue/devtools-api/-/devtools-api-6.5.0.tgz"
   "version" "6.5.0"
 
-"@vue/language-core@1.8.27":
-  "integrity" "sha512-L8Kc27VdQserNaCUNiSFdDl9LWT24ly8Hpwf1ECy3aFb9m6bDhBGQYOujDm21N7EW3moKIOKEanQwe1q5BK+mA=="
-  "resolved" "https://registry.npmjs.org/@vue/language-core/-/language-core-1.8.27.tgz"
-  "version" "1.8.27"
+"@vue/language-core@2.1.6":
+  "integrity" "sha512-MW569cSky9R/ooKMh6xa2g1D0AtRKbL56k83dzus/bx//RDJk24RHWkMzbAlXjMdDNyxAaagKPRquBIxkxlCkg=="
+  "resolved" "https://registry.npmjs.org/@vue/language-core/-/language-core-2.1.6.tgz"
+  "version" "2.1.6"
   dependencies:
-    "@volar/language-core" "~1.11.1"
-    "@volar/source-map" "~1.11.1"
-    "@vue/compiler-dom" "^3.3.0"
-    "@vue/shared" "^3.3.0"
+    "@volar/language-core" "~2.4.1"
+    "@vue/compiler-dom" "^3.4.0"
+    "@vue/compiler-vue2" "^2.7.16"
+    "@vue/shared" "^3.4.0"
     "computeds" "^0.0.1"
     "minimatch" "^9.0.3"
-    "muggle-string" "^0.3.1"
+    "muggle-string" "^0.4.1"
     "path-browserify" "^1.0.1"
-    "vue-template-compiler" "^2.7.14"
 
 "@vue/reactivity-transform@3.2.47":
   "integrity" "sha512-m8lGXw8rdnPVVIdIFhf0LeQ/ixyHkH5plYuS83yop5n7ggVJU+z5v0zecwEnX7fa7HNLBhh2qngJJkxpwEEmYA=="
@@ -1130,7 +1136,7 @@
     "@vue/compiler-ssr" "3.2.47"
     "@vue/shared" "3.2.47"
 
-"@vue/shared@^3.3.0", "@vue/shared@3.5.12":
+"@vue/shared@^3.4.0", "@vue/shared@3.5.12":
   "integrity" "sha512-L2RPSAwUFbgZH20etwrXyVyCBu9OxRSi8T/38QsvnkJyvq2LufW2lDCOzm7t/U9C1mkhJGWYfCuFBCmIuNivrg=="
   "resolved" "https://registry.npmjs.org/@vue/shared/-/shared-3.5.12.tgz"
   "version" "3.5.12"
@@ -3579,10 +3585,10 @@
   "resolved" "https://registry.npmjs.org/ms/-/ms-2.1.2.tgz"
   "version" "2.1.2"
 
-"muggle-string@^0.3.1":
-  "integrity" "sha512-ckmWDJjphvd/FvZawgygcUeQCxzvohjFO5RxTjj4eq8kw359gFF3E1brjfI+viLMxss5JrHTDRHZvu2/tuy0Qg=="
-  "resolved" "https://registry.npmjs.org/muggle-string/-/muggle-string-0.3.1.tgz"
-  "version" "0.3.1"
+"muggle-string@^0.4.1":
+  "integrity" "sha512-VNTrAak/KhO2i8dqqnqnAHOa3cYBwXEZe9h+D5h/1ZqFSTEFHdM65lR7RoIqq3tBBYavsOXV84NoHXZ0AkPyqQ=="
+  "resolved" "https://registry.npmjs.org/muggle-string/-/muggle-string-0.4.1.tgz"
+  "version" "0.4.1"
 
 "nanoid@^3.3.7":
   "integrity" "sha512-eSRppjcPIatRIMC1U6UngP8XFcz8MQWGQdt1MTBQ7NaAmvXDfvNxbvWV3x2y6CdEUciCSsDHDQZbhYaB8QEo2g=="
@@ -4712,7 +4718,7 @@
     "for-each" "^0.3.3"
     "is-typed-array" "^1.1.9"
 
-"typescript@*", "typescript@>=2.8.0 || >= 3.2.0-dev || >= 3.3.0-dev || >= 3.4.0-dev || >= 3.5.0-dev || >= 3.6.0-dev || >= 3.6.0-beta || >= 3.7.0-dev || >= 3.7.0-beta", "typescript@>=3.9", "typescript@>=4.4.4", "typescript@5.0.4":
+"typescript@*", "typescript@>=2.8.0 || >= 3.2.0-dev || >= 3.3.0-dev || >= 3.4.0-dev || >= 3.5.0-dev || >= 3.6.0-dev || >= 3.6.0-beta || >= 3.7.0-dev || >= 3.7.0-beta", "typescript@>=3.9", "typescript@>=4.4.4", "typescript@>=5.0.0", "typescript@5.0.4":
   "integrity" "sha512-cW9T5W9xY37cc+jfEnaUvX91foxtHkza3Nw3wkoF4sSlKn0MONdkdEndig/qPBWXNkmplh3NzayQzCiHM4/hqw=="
   "resolved" "https://registry.npmjs.org/typescript/-/typescript-5.0.4.tgz"
   "version" "5.0.4"
@@ -4894,6 +4900,11 @@
   optionalDependencies:
     "fsevents" "~2.3.2"
 
+"vscode-uri@^3.0.8":
+  "integrity" "sha512-AyFQ0EVmsOZOlAnxoFOGOq1SQDWAB7C6aqMGS23svWAllfOaxbuFvcT8D1i8z3Gyn8fraVeZNNmN6e9bxxXkKw=="
+  "resolved" "https://registry.npmjs.org/vscode-uri/-/vscode-uri-3.0.8.tgz"
+  "version" "3.0.8"
+
 "vue-chartjs@5.2.0":
   "integrity" "sha512-d3zpKmGZr2OWHQ1xmxBcAn5ShTG917+/UCLaSpaCDDqT0U7DBsvFzTs69ZnHCgKoXT55GZDW8YEj9Av+dlONLA=="
   "resolved" "https://registry.npmjs.org/vue-chartjs/-/vue-chartjs-5.2.0.tgz"
@@ -4958,21 +4969,13 @@
   dependencies:
     "shepherd.js" "^11.1.0"
 
-"vue-template-compiler@^2.7.14":
-  "integrity" "sha512-AYbUWAJHLGGQM7+cNTELw+KsOG9nl2CnSv467WobS5Cv9uk3wFcnr1Etsz2sEIHEZvw1U+o9mRlEO6QbZvUPGQ=="
-  "resolved" "https://registry.npmjs.org/vue-template-compiler/-/vue-template-compiler-2.7.16.tgz"
-  "version" "2.7.16"
+"vue-tsc@^2.1.6":
+  "integrity" "sha512-f98dyZp5FOukcYmbFpuSCJ4Z0vHSOSmxGttZJCsFeX0M4w/Rsq0s4uKXjcSRsZqsRgQa6z7SfuO+y0HVICE57Q=="
+  "resolved" "https://registry.npmjs.org/vue-tsc/-/vue-tsc-2.1.6.tgz"
+  "version" "2.1.6"
   dependencies:
-    "de-indent" "^1.0.2"
-    "he" "^1.2.0"
-
-"vue-tsc@^1.8.27":
-  "integrity" "sha512-WesKCAZCRAbmmhuGl3+VrdWItEvfoFIPXOvUJkjULi+x+6G/Dy69yO3TBRJDr9eUlmsNAwVmxsNZxvHKzbkKdg=="
-  "resolved" "https://registry.npmjs.org/vue-tsc/-/vue-tsc-1.8.27.tgz"
-  "version" "1.8.27"
-  dependencies:
-    "@volar/typescript" "~1.11.1"
-    "@vue/language-core" "1.8.27"
+    "@volar/typescript" "~2.4.1"
+    "@vue/language-core" "2.1.6"
     "semver" "^7.5.4"
 
 "vue@^2.6.12 || ^3.2.4", "vue@^2.6.14 || ^3.2.0", "vue@^2.7.0 || ^3.2.25", "vue@^3.0.0", "vue@^3.0.0-0 || ^2.6.0", "vue@^3.0.0-0 || ^2.7.0", "vue@^3.0.11", "vue@^3.2.0", "vue@^3.2.25", "vue@> 3.0.0", "vue@>=3", "vue@>=3.0.0", "vue@2 || 3", "vue@3.2.47":

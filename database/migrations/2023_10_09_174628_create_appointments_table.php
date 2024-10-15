@@ -11,6 +11,7 @@ return new class extends Migration
      *
      * @return void
      */
+
     public function up()
     {
         Schema::create('appointments', function (Blueprint $table) {
@@ -23,19 +24,16 @@ return new class extends Migration
             $table->integer('type');
             $table->integer('pricing')->nullable();
             $table->foreignId('user_id')->constrained('users');
+            $table->foreignId('admin_id')->constrained('admins');
+            $table->foreignId('case_id')->constrained('cases');
             $table->foreignId('created_by')->constrained('admins');
             $table->foreignId('updated_by')->constrained('admins');
+            $table->foreignId('currency_id')->constrained('currencies');
             $table->text('properties')->nullable();
-
-
             $table->float('cost')->nullable();
             $table->float('discount')->nullable();
-            $table->tinyInteger('discount_type')->default(1);
-            $table->integer('currency')->nullable();
 
             $table->unsignedBigInteger('orderable_id')->nullable();
-
-            $table->foreignId('supervisor_id')->nullable()->constrained('admins');
 
             $table->timestamps();
         });

@@ -1,0 +1,114 @@
+models:
+  # admins:
+  #   id: integer
+  #   name: string
+  #   email: string
+  #   password: string
+  #   enabled: tinyint
+  #   remember_token: string
+  #   avatar: text
+  # users:
+  #   id: integer
+  #   name: string
+  #   password: string
+  appointments:
+    id: integer
+    user_id: integer user
+    admin_id: integer admin
+    case_id: integer case
+    status: tinyint
+    price: integer
+    currency: string
+    discount: integer
+    type: string
+    date: date
+    time: time
+
+  sessions:
+    user_id: integer user
+    admin_id: integer admin
+    date: date
+    time: time
+    note: string
+    status: tinyint
+    case_id: integer case
+
+  cases:
+    name: string
+    desc: string
+    type: string
+    price: integer
+    user_id: integer user
+    admin_id: integer admin
+    court_id: integer court
+    started_at: date
+    note: string
+    status: tinyint
+  Courts:
+    name: string
+    desc: string
+    city_id: integer city
+  countries:
+    name: string
+    desc: string
+  cities:
+    name: string
+    desc: string
+    country_id: integer country
+
+  orders:
+    id: integer
+    user_id:  integer user
+    admin_id: integer admin
+    cost: integer
+    paid: integer
+    unpaid: integer
+    status: tinyint  # 0: pending, 1: paid, 2: unpaid  3: returned
+    date: date
+    time: time
+    note: string
+
+  payments:
+    id: integer
+    user_id: integer user
+    admin_id: integer admin
+    date: date
+    time: time
+    amount: integer
+    currency: string
+    note: string
+  
+  app_models:
+
+  media
+
+  settings:
+
+
+
+controllers:
+  admin:
+    index:
+      query: all
+       render: admin.index with:admins
+    show
+    create
+    update
+    delete
+  user:
+    index:
+      query: all
+      render: user.index with:users
+    show
+    create
+    update
+    delete
+  appointment:
+    index:
+      query: all
+      render: appointment.index with:appointments
+    show
+    create
+    update
+    delete
+  

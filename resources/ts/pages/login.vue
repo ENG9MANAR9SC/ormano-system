@@ -19,8 +19,8 @@ const authThemeMask = useGenerateImageVariant(authV2MaskLight, authV2MaskDark)
 const isPasswordVisible = ref(false)
 
 const refVForm = ref<VForm>()
-const email = ref('admin@demo.com')
-const password = ref('admin')
+const email = ref('admin@admin.net')
+const password = ref('password')
 const rememberMe = ref(false)
 </script>
 
