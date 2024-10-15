@@ -170,5 +170,13 @@
   "Employees": "Employees",
   "General": "General",
   "Financial": "Financial",
-  "Reports": "Reports"
+  "Reports": "Reports",
+  "Users": "Users",
+  "Cases" : "Cases",
+  "Admins" : "Admins",
+  "Countries" : "Countries",
+  "Cities" : "Cities",
+  "Currencies" : "Currencies",
+  "Courts" : "Courts",
+  "Orders" : "Orders"
 }

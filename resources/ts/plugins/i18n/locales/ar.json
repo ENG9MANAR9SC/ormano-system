@@ -168,5 +168,13 @@
   "Employees": "الموظفين",
   "General": "عام",
   "Financial": "مالي",
-  "Reports": "التقارير"
+  "Reports": "التقارير",
+  "Users" : "المستخدمين",
+  "Cases" : "القضايا",
+  "Admins" : "المشرفين",
+  "Countries" : "الدول",
+  "Cities" : "المدن",
+  "Currencies" : "العملات",
+  "Courts" : "المحاكم",
+  "Orders" : "الطلبات"
 }

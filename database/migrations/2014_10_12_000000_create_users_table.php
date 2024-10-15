@@ -27,9 +27,6 @@ return new class extends Migration
             $table->json('properties')->nullable();
             $table->string('notes')->nullable();
 
-            $table->foreignId('referral_model')->nullable()->constrained('app_models');
-            $table->foreignId('referral_id')->nullable();
-
             $table->timestamps();
         });
     }

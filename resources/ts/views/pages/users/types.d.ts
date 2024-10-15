@@ -38,6 +38,4 @@ export interface UserProperties {
   gender_title: string,
   address: string,
   weight: number,
-  referral_hybrid_id: string,
-  referral_details: string
 }

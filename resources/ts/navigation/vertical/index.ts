@@ -14,7 +14,7 @@ export default [
   },
   {
     to: {name: 'user'},
-    icon: {icon:'tabler-calendar-check'},
+    icon: {icon:'tabler-users'},
     title: 'Users',
   },
   {
@@ -31,18 +31,18 @@ export default [
         to: {name:'report-general'},
         title: 'General',
       },
-      // {
-      //   to: {name: 'country'},
-      //   title: 'Country',
-      // },
-      // {
-      //   to: {name: 'currency'},
-      //   title: 'Currency',
-      // },
-      // {
-      //   to: {name: 'court'},
-      //   title: 'Courts',
-      // },
+      {
+        to: {name: 'country'},
+        title: 'Countries',
+      },
+      {
+        to: {name: 'currency'},
+        title: 'Currencies',
+      },
+      {
+        to: {name: 'court'},
+        title: 'Courts',
+      },
     ],
     icon: {icon: 'tabler-settings'},
     title: 'Settings',
@@ -63,10 +63,10 @@ export default [
   },
   {
     children: [
-      // {
-      //   to: {name:'order'},
-      //   title: 'Orders',
-      // },
+      {
+        to: {name:'order'},
+        title: 'Orders',
+      },
       {
         to: {name: 'payment'},
         title: 'Payments',
@@ -77,7 +77,7 @@ export default [
       },
     ],
     icon: {icon: 'tabler-brand-mastercard'},
-    title: 'Financials',
+    title: 'Financial',
   },
   {
     children: [

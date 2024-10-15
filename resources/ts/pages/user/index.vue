@@ -8,6 +8,7 @@ const userListStore = useUserListStore();
 const searchQuery = ref('');
 const per_page = ref(10);
 const currentPage = ref(1);
+const s = ref(2);
 const total_pages = ref(0);
 
 const users = ref<UserProperties[]>([])
@@ -43,7 +44,7 @@ watchEffect(fetchUsers)
       <VCol cols="12">
         <VCard>
           <VCardItem class="d-flex flex-wrap justify-space-between gap-4">
-            <VCardTitle> Project List</VCardTitle>
+            <VCardTitle>{{ $t("Users") }} </VCardTitle>
 
             <template #append>
 
@@ -67,12 +68,17 @@ watchEffect(fetchUsers)
                 </VBtn>
 
                 <!-- 👉 Add user button -->
-                <VBtn
-                  prepend-icon="tabler-plus"
-                  @click="isAddNewUserDrawerVisible = true"
+                <a
+                  href="/user/create"
+                  rel="noopener noreferrer"
+                  class="text-decoration-none"
                 >
-                  Add New User
-                </VBtn>
+                  <VBtn
+                    prepend-icon="tabler-plus"
+                  >
+                    Add New User
+                  </VBtn>
+                </a> 
               </div>
             </template>
           </VCardItem>

@@ -295,24 +295,6 @@ class UserController extends Controller
     ]);
   }
 
-  public function clearReferral($id)
-  {
-    $user = User::find($id);
-
-    if ($user) {
-      $user->update([
-        'referral_id' => null,
-        'referral_model' => null,
-      ]);
-      return response()->json([
-        'status' => true,
-      ]);
-    }
-
-    return response()->json([
-      'status' => false,
-    ]);
-  }
 
   ///////////////////////////////
   // packages
