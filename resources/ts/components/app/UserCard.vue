@@ -1,6 +1,8 @@
 <script lang="ts" setup>
 import type { UserProperties } from '@/views/pages/users/types';
 import { useUserListStore } from '@/views/pages/users/useUserListStore';
+import avatarMale from '@images/avatars/male-avatar.svg';
+import avatarFemale from '@images/avatars/female-avatar.svg';
 
 interface Props {
   user: UserProperties;
@@ -49,11 +51,20 @@ const deleteUserEvt = () => {
 
     <VCardItem>
       <VCardTitle class="d-flex flex-column align-center justify-center">
-        <VAvatar
+        <div v-if="user.avatar">
+          <VAvatar
+          
           size="100"
           :image="user.avatar"
-        />
-
+          />
+        </div>
+        <div v-else>
+          <VAvatar size="100">
+            <VImg :src="avatarFemale" />
+          </VAvatar>
+        </div>
+    
+     
         <p class="mt-4 mb-0">
           {{ user.full_name }}
         </p>
