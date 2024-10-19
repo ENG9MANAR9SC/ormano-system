@@ -12,10 +12,10 @@ export const useUserListStore = defineStore('UserListStore', {
     // 👉 Add User
     addUser(userData: UserProperties) {
       return new Promise((resolve, reject) => {
-        axios.post('/apps/users/user', {
-          user: userData,
-        }).then(response => resolve(response))
-          .catch(error => reject(error))
+      axios.post('/admin/users', {
+        user: userData,
+      }).then(response => resolve(response))
+        .catch(error => reject(error))
       })
     },
 

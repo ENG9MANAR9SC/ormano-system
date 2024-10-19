@@ -22,9 +22,9 @@ class User extends Authenticatable
         self::GENDER_FEMALE => 'Female',
     ];
 
-    const STATUS_ACTIVE = 0;
-    const STATUS_PENDING = 1;
-    const STATUS_DISABLED = 2;
+    const STATUS_UnActive = 0;
+    const STATUS_ACTIVE = 1;
+   
 
     /**
      * The attributes that are mass assignable.
@@ -38,8 +38,6 @@ class User extends Authenticatable
         "birthdate",
         "gender",
         "active",
-        "referral_model",
-        "referral_id",
     ];
 
     /**
@@ -69,9 +67,6 @@ class User extends Authenticatable
         'age',
         'gender_title',
         'address',
-        'weight',
-        'referral_hybrid_id',
-        'referral_details',
     ];
 
     public static function boot()
@@ -105,11 +100,6 @@ class User extends Authenticatable
         return isset($properties['address']) ? $properties['address'] : '';
     }
 
-    public function getWeightAttribute()
-    {
-        $properties = $this->properties;
-        return isset($properties['weight']) ? $properties['weight'] : '';
-    }
 
     public function getGenderTitleAttribute()
     {
@@ -120,37 +110,7 @@ class User extends Authenticatable
             return self::GENDER_ARRAY[$genderValue];
         } else {
 
-            return 'Unknown Gender';
-        }
-    }
-
-    public function getReferralHybridIdAttribute()
-    {
-        if (!$this->referral_model) return null;
-
-        $referral_hybrid = $this->referral_model . '_' . $this->referral_id;
-
-        return $referral_hybrid;
-    }
-
-    public function getReferralDetailsAttribute()
-    {
-        $app_model = AppModel::find($this->referral_model);
-
-        if (!$app_model) return null;
-
-        switch ($app_model->slug) {
-            case 'user':
-                $user = User::find($this->referral_id);
-                return $user->full_name . ' (Patient)';
-            case 'referral':
-                $referral = Referral::find($this->referral_id);
-                return $referral->title . ' (Custom)';
-            case 'admin':
-                $admin = Admin::find($this->referral_id);
-                return $admin->name . ' (Employee)';
-            default:
-                return null;
+            return 'Unknown';
         }
     }
 
@@ -159,51 +119,37 @@ class User extends Authenticatable
         // $admin = auth()->guard('admin')->user();
         if ($id) {
             $user = User::findOrFail($id);
-
-            if (isset($input['referral_id'])) {
-                list($referral_model, $referral_id) = explode('_', $input['referral_id']);
-            }
-
             $user->update([
-                "full_name"       => $input["full_name"],
-                "phone_number"    => $input["phone_number"],
-                "email"           => $input["email"] ?? null,
-                "birthdate"       => Carbon::parse($input["birthdate"]),
-                "gender"          => $input["gender"],
-                "referral_model"  => $referral_model ?? null,
-                "referral_id"     => $referral_id ?? null,
+                "full_name"       => $input["user"]["full_name"],
+                "phone_number"    => $input["user"]["phone_number"],
+                "email"           => $input["user"]["email"] ?? null,
+                "birthdate"       => Carbon::parse($input["user"]["birth_date"]),
+                "gender"          => $input["user"]["gender"],
             ]);
 
-            $properties["occupation"] = isset($input["occupation"]) ? $input["occupation"] : null;
-            $properties["civil_status"] = isset($input["civil_status"]) ? $input["civil_status"] : null;
-            $properties["address"] = isset($input["address"]) ? $input["address"] : null;
-            $properties["weight"] = isset($input["weight"]) ? $input["weight"] : null;
+            $properties["user"]["occupation"]   = isset($input["user"]["occupation"]) ? $input["user"]["occupation"] : null;
+            $properties["user"]["civil_status"] = isset($input["user"]["civil_status"]) ? $input["user"]["civil_status"] : null;
+            $properties["user"]["address"]      = isset($input["user"]["address"]) ? $input["user"]["address"] : null;
 
 
             $user->properties = $properties;
             $user->save();
         } else {
-
-            if (isset($input['referral_id'])) {
-                list($referral_model, $referral_id) = explode('_', $input['referral_id']);
-            }
-
+           
             $user = User::create([
-                "full_name"       => $input["full_name"],
-                "phone_number"    => $input["phone_number"],
-                "email"           => isset($input["email"]) ? $input["email"] : null,
-                "birthdate"       => Carbon::parse($input["birthdate"]),
-                "gender"          => $input["gender"],
-                "active"          => self::STATUS_PENDING,
-                "referral_model"  => $referral_model ?? null,
-                "referral_id"     => $referral_id ?? null,
+                "full_name"       => $input["user"]["full_name"],
+                "phone_number"    => $input["user"]["phone_number"],
+                "email"           => isset($input["user"]["email"]) ? $input["user"]["email"] : null,
+                "birthdate"       => Carbon::parse($input["user"]["birth_date"]),
+                "gender"          => $input["user"]["gender"],
+                "active"          => self::STATUS_ACTIVE,
             ]);
             $properties = [];
 
             $properties["occupation"] = isset($input["occupation"]) ? $input["occupation"] : null;
             $properties["civil_status"] = isset($input["civil_status"]) ? $input["civil_status"] : null;
             $properties["address"] = isset($input["address"]) ? $input["address"] : null;
-            $properties["weight"] = isset($input["weight"]) ? $input["weight"] : null;
+
 
 
             $user->properties = $properties;
@@ -252,10 +198,6 @@ class User extends Authenticatable
         return $this->hasMany(Payment::class);
     }
 
-    public function notes()
-    {
-        return $this->belongsToMany(Note::class);
-    }
 
     public function recalculateBalance()
     {
@@ -280,17 +222,4 @@ class User extends Authenticatable
         $this->save();
     }
 
-    public static function deleteReferralHandler($model_id, $slug)
-    {
-        $app_model = AppModel::where('slug', $slug)->first();
-
-        if (isset($app_model)) {
-            User::where('referral_model', $app_model->id)
-                ->where('referral_id', $model_id)
-                ->update([
-                    'referral_model' => null,
-                    'referral_id' => null
-                ]);
-        }
-    }
 }

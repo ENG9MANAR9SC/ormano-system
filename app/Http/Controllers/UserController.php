@@ -2,13 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\AppModel;
-use App\Models\Note;
 use App\Models\User;
 use App\Models\UserSheet;
-use App\Models\Appointment;
 use Illuminate\Http\Request;
-use Illuminate\Auth\Events\Validated;
 use Pion\Laravel\ChunkUpload\Receiver\FileReceiver;
 use Pion\Laravel\ChunkUpload\Handler\HandlerFactory;
 use Pion\Laravel\ChunkUpload\Exceptions\UploadMissingFileException;
@@ -61,34 +57,32 @@ class UserController extends Controller
    * @return \Illuminate\Http\Response
    */
   public function store(Request $request)
-  {
-    if ($request->id) {
+  {  
+    // if ($request->validate("user")) {
+    //   $validated = $request->validate([
+    //     "user.full_name"    => "required",
+    //     "user.phone_number" => "required",
+    //     "user.email"        => "nullable",
+    //     "user.address"      => "nullable",
+    //     "user.birth_date"    => "required",
+    //     "user.gender"       => "required",
+    //     "user.occupation"   => "nullable",
+    //     "user.civil_status" => "nullable",
+    //   ]);
+    // } else {
       $validated = $request->validate([
-        "full_name" => "required",
-        "phone_number" => "required",
-        "email" => "nullable",
-        "address" => "nullable",
-        "birthdate" => "required",
-        "gender" => "required",
-        "occupation" => "nullable",
-        "civil_status" => "nullable",
-        "weight" => "nullable",
-        "referral_id" => "nullable",
+        "user.full_name"    => "required",
+        "user.phone_number" => "required | unique:users,phone_number",
+        "user.email"        => "nullable",
+        "user.address"      => "nullable",
+        "user.birth_date"    => "required",
+        "user.gender"       => "required",
+        "user.occupation"   => "nullable",
+        "user.civil_status" => "nullable",
       ]);
-    } else {
-      $validated = $request->validate([
-        "full_name" => "required",
-        "phone_number" => "required | unique:users,phone_number",
-        "email" => "nullable",
-        "address" => "nullable",
-        "birthdate" => "required",
-        "gender" => "required",
-        "occupation" => "nullable",
-        "civil_status" => "nullable",
-        "weight" => "nullable",
-        "referral_id" => "nullable",
-      ]);
-    }
+   // }
+
+   // $validated = $validated['user'];
 
     User::createOrUpdate($validated, $request->id);
   }
@@ -153,7 +147,6 @@ class UserController extends Controller
     //   'Patient name',
     //   'Amount',
     //   'Created by',
-    //   'Referral',
     //   'Date',
     // ];
 
@@ -164,7 +157,6 @@ class UserController extends Controller
     //     $payment->user_name,
     //     $payment->amount,
     //     $payment->created_by_name,
-    //     $user_referral,
     //     $payment->created_at->format('Y-m-d H:i:s'),
     //   ];
     // })->toArray();
@@ -258,43 +250,6 @@ class UserController extends Controller
       'status' => true,
     ]);
   }
-
-  ///////////////////////////////
-  // notes
-  ///////////////////////////////
-  public function saveNotes(Request $request)
-  {
-    // dd($request);
-    $request->validate([
-      'user_id' => 'required|exists:users,id'
-    ]);
-
-    $notes = json_decode($request->notes);
-    $user = User::findOrFail($request->user_id);
-
-    $user->notes()->detach();
-
-    foreach ($notes as $note) {
-      if (isset($note->id)) {
-        $oldNotes = Note::find($note->id);
-
-        $user->notes()->syncWithoutDetaching($oldNotes->id);
-      } else {
-        $newNote = Note::create([
-          'app_model' => 3, // refer to user model
-          'text'      => $note->text,
-          'type'      => $note->type,
-        ]);
-
-        $user->notes()->syncWithoutDetaching($newNote->id);
-      }
-    }
-
-    return response()->json([
-      'notes' => $user->notes()->get()
-    ]);
-  }
-
 
   ///////////////////////////////
   // packages

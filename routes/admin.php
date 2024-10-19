@@ -1,22 +1,17 @@
 <?php
 
-use App\Models\Device;
-use App\Models\Referral;
-use Illuminate\Http\Request;
+
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\NoteController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\CourtController;
 use App\Http\Controllers\OrderController;
-use App\Http\Controllers\DeviceController;
 use App\Http\Controllers\ReportController;
 use App\Http\Controllers\ExpenseController;
-use App\Http\Controllers\PackageController;
 use App\Http\Controllers\PaymentController;
-use App\Http\Controllers\CategoryController;
-use App\Http\Controllers\ReferralController;
 use App\Http\Controllers\PermissionController;
 use App\Http\Controllers\AppointmentController;
 
@@ -38,7 +33,6 @@ Route::middleware(['auth:admin'])->group(function () {
   Route::get('user/get-by-id/{id}', [UserController::class, 'searchById']);
   Route::get('user/{id}/sheets', [UserController::class, 'getUserSheets']);
   Route::post('user/sheet/save', [UserController::class, 'saveSheet']);
-  Route::post('user/{id}/referral/clear', [UserController::class, 'clearReferral']);
   Route::get('user/{id}/refresh-balance', [UserController::class, 'refreshBalance']);
 
   Route::post('sheet/{id}/add-file', [UserController::class, 'addFileToSheet']);
@@ -46,8 +40,11 @@ Route::middleware(['auth:admin'])->group(function () {
   Route::post('user/notes', [UserController::class, 'saveNotes']);
   Route::get('user/packages', [UserController::class, 'getUserPackages']);
 
-  Route::resource('categories', CategoryController::class);
-  Route::resource('devices', DeviceController::class);
+
+
+  // courts
+  Route::resource('courts', CourtController::class);
+  
 
   Route::resource('appointments', AppointmentController::class);
   Route::get('appointments/get/create/data', [AppointmentController::class, 'getCreateData']);
@@ -72,8 +69,6 @@ Route::middleware(['auth:admin'])->group(function () {
   Route::resource('expenses', ExpenseController::class);
   Route::get('getCreateData', [ExpenseController::class, 'getCreateData']);
 
-  Route::resource('referrals', ReferralController::class);
-  Route::get('referrals/get/all', [ReferralController::class, 'allReferrals']);
 
   Route::get('notes', [NoteController::class, 'index']);
 

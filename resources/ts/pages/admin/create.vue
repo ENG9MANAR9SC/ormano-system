@@ -1,6 +1,6 @@
 <template>
   <div>
-
+    Create Admin
   </div>
 </template>
 

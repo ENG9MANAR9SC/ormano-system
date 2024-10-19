@@ -26,8 +26,8 @@ class AdminController extends Controller
     });
 
     // dd($admins->toSql(), $admins->getBindings());
-
-    $admins = $admins->with('roles')->paginate($per_page);
+    //->with('roles')
+    $admins = $admins->paginate($per_page);
 
     return response()->json([
       'admins' => $admins,

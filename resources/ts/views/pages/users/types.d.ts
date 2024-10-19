@@ -25,10 +25,11 @@ export interface UserProperties {
   gender: number,
   avatar: string,
   email: string,
-  birthdate: string,
+  birth_date: string,
   active: number,
   balance: number,
   email_verified_at: string,
+  password: string,
   notes: string,
   created_at: string,
   updated_at: string,
@@ -37,5 +38,4 @@ export interface UserProperties {
   age: number,
   gender_title: string,
   address: string,
-  weight: number,
 }
