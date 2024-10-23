@@ -10,10 +10,12 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\CourtController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ReportController;
+use App\Http\Controllers\CountryController;
 use App\Http\Controllers\ExpenseController;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\PermissionController;
 use App\Http\Controllers\AppointmentController;
+use App\Http\Controllers\CityController;
 
 /*
 |--------------------------------------------------------------------------
@@ -45,6 +47,13 @@ Route::middleware(['auth:admin'])->group(function () {
   // courts
   Route::resource('courts', CourtController::class);
   
+
+  // countries
+  Route::resource('countries', CountryController::class);
+
+  // cities
+  Route::resource('cities', CityController::class);
+
 
   Route::resource('appointments', AppointmentController::class);
   Route::get('appointments/get/create/data', [AppointmentController::class, 'getCreateData']);

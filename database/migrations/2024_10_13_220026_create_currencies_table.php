@@ -15,12 +15,8 @@ return new class extends Migration
             $table->id();
             $table->text('titles')->nullable();
             $table->text('descriptions')->nullable();
-            $table->text('currency_key')->nullable();
             $table->text('currency_symbol')->nullable();
-            $table->foreignId('country_id')->constrained('countries');
-            $table->tinyInteger('system_status')->default(1);
-            $table->tinyInteger('user_status')->default(1);
-            $table->double('exchange_rate')->nullable();
+            $table->text('iso_code')->nullable();
             $table->timestamps();
         });
     }

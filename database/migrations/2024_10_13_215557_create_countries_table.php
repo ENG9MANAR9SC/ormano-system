@@ -12,13 +12,12 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('countries', function (Blueprint $table) {
-            $table->id();
+            $table->id()->autoIncrement();
             $table->text('names')->nullable();
-            $table->text('currencies')->nullable();
+            $table->foreignId('currency_id')->nullable();
+            $table->foreign('currency_id')->references('id')->on('currencies')->onDelete('cascade');
             $table->text('languages')->nullable();
-            $table->longText('flag')->nullable();
-            $table->tinyInteger('system_status')->nullable();
-            $table->tinyInteger('user_status')->nullable();
+            $table->text('zone_id')->nullable();
             $table->timestamps();
         });
     }

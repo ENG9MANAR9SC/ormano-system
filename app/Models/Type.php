@@ -8,6 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class Type extends Model
 {
   use HasFactory;
+
+  const PRICE_CURRENCY_TYPE = 2;
+
+  
   protected $fillable = [
     'title',
     'slug',
@@ -16,6 +20,8 @@ class Type extends Model
     'created_by',
     'updated_by',
   ];
+
+  
   public function appModel()
   {
     return $this->belongsTo(AppModel::class);

@@ -57,44 +57,46 @@ const loadItems = ref(false);
         </div>
   
       </VCardActions>
-      <VContainer>
-        <VTable>
-          <THead>
-            <tr>
-              <TH class="text-left">
-                Name
-              </TH>
-              <TH class="text-left">
-                Email
-              </TH>
-              <TH class="text-left">
-                Phone
-              </TH>
-              <TH class="text-left">
-                Status
-              </TH>
-              <!-- <TH class="text-left">
-                Role
-              </TH> -->
-            </tr>
-          </THead>
-          <TBody>
-            <tr
-              v-for="admin in admins"
-              :key="admin.id"
-            >
-              <td>{{ admin.name }}</td>
-              <td>{{ admin.email }}</td>
-              <td>{{ admin.number }}</td>
-              <td>
-                <span v-if="admin.enabled === 1" style="background-color: seagreen; border-radius: 4px; padding: 8px;color:white">Active</span>
-                <span v-else style="background-color: red; border-radius: 4px; padding: 8px;color:white">Un Active</span>
-              </td>
-            </tr>
-          </TBody>
-        </VTable>
-        
-      </VContainer>
+      <VCardBody>
+        <VContainer>
+          <VTable>
+            <THead>
+              <tr>
+                <TH class="text-left">
+                  Name
+                </TH>
+                <TH class="text-left">
+                  Email
+                </TH>
+                <TH class="text-left">
+                  Phone
+                </TH>
+                <TH class="text-left">
+                  Status
+                </TH>
+                <!-- <TH class="text-left">
+                  Role
+                </TH> -->
+              </tr>
+            </THead>
+            <TBody>
+              <tr
+                v-for="admin in admins"
+                :key="admin.id"
+              >
+                <td>{{ admin.name }}</td>
+                <td>{{ admin.email }}</td>
+                <td>{{ admin.number }}</td>
+                <td>
+                  <span v-if="admin.enabled === 1" style="background-color: seagreen; border-radius: 4px; padding: 8px;color:white">Active</span>
+                  <span v-else style="background-color: red; border-radius: 4px; padding: 8px;color:white">Un Active</span>
+                </td>
+              </tr>
+            </TBody>
+          </VTable>
+          
+        </VContainer>
+      </VCardBody>
     </VCard>
   </div>
 </template>

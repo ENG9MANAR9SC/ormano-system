@@ -7,11 +7,9 @@ import type { UserProperties } from '@/views/pages/users/types';
 import { useUserListStore } from '@/views/pages/users/useUserListStore';
 
 const userStore = useUserListStore();
-const emit = defineEmits(['add-user']);
 
-// interface Props {
-//   user: UserProperties;
-// }
+
+
 const items = ref([
   { text: 'Home', disabled: false, href: '/' },
   { text: 'Users', disabled: false, href: '/users' },

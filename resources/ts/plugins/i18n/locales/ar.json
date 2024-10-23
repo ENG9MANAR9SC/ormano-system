@@ -176,5 +176,17 @@
   "Cities" : "المدن",
   "Currencies" : "العملات",
   "Courts" : "المحاكم",
-  "Orders" : "الطلبات"
+  "Orders" : "الطلبات",
+  "Name" : "الاسم",
+  "Email" : "البريد الإلكتروني",
+  "Phone" : "الهاتف",
+  "Address" : "العنوان",
+  "City" : "المدينة",
+  "Country" : "الدولة",
+  "Currency" : "العملة",
+  "Court" : "المحكمة",
+  "Description" : "الوصف",
+  "Status" : "الحالة",
+  "Actions" : "الإجراءات",
+  "Add New Court" : "إضافة محكمة جديدة"
 }

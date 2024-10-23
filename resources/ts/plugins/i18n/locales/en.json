@@ -178,5 +178,17 @@
   "Cities" : "Cities",
   "Currencies" : "Currencies",
   "Courts" : "Courts",
-  "Orders" : "Orders"
+  "Orders" : "Orders",
+  "Name" : "Name",
+  "Email" : "Email",
+  "Phone" : "Phone",
+  "Address" : "Address",
+  "City" : "City",
+  "Country" : "Country",
+  "Currency" : "Currency",
+  "Court" : "Court",
+  "Description" : "Description",
+  "Status" : "Status",
+  "Actions" : "Actions",
+  "Add New Court" : "Add New Court"
 }
