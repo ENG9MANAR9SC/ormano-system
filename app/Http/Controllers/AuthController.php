@@ -14,12 +14,12 @@ class AuthController extends Controller
 
   public function checkLogin()
   {
-
+   
     $credentials = request()->only(['email', 'password']);
     $remember = request()->has('remember');
 
     $user = Admin::where('email', $credentials['email'])->first();
-
+    
     if ($user == null) {
       return redirect()->back()->withErrors(
         [

@@ -17,14 +17,12 @@ use App\Http\Controllers\CategoryController;
 |
 */
 
-Route::get('/login', function () {
+Route::get('login', function () {
 	return view('login');
 })->name('login');
 
 
 Route::post('login', [AuthController::class, 'checkLogin']);
-
-
 
 // replace with line below to disable middleware
 // Route::middleware([])
@@ -35,7 +33,7 @@ Route::middleware(['auth:admin'])->group(function () {
 	});
 	Route::get('/logout', function () {
 		auth()->guard('admin')->logout();
-		return redirect('/login');
+		return redirect('login');
 	});
 	// Route::get('categories/getData', [CategoryController::class, 'getData']);
 	// Route::post('categories/createOrUpdate', [CategoryController::class, 'createOrUpdate']);

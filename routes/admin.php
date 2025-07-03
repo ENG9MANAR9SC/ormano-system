@@ -2,6 +2,7 @@
 
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CityController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\NoteController;
 use App\Http\Controllers\RoleController;
@@ -15,7 +16,6 @@ use App\Http\Controllers\ExpenseController;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\PermissionController;
 use App\Http\Controllers\AppointmentController;
-use App\Http\Controllers\CityController;
 
 /*
 |--------------------------------------------------------------------------
@@ -92,9 +92,10 @@ Route::middleware(['auth:admin'])->group(function () {
   Route::get('reports/summeryFinancial', [ReportController::class, 'getSummeryFinancial']);
   Route::get('reports/financialThisMonth', [ReportController::class, 'getFinancialThisMonth']);
 
-  Route::get('reports/sumeryFinancialThisYearly', [ReportController::class, 'getSumeryFinancialYearly']);
-  Route::get('reports/sumeryFinancialThisMonth', [ReportController::class, 'getSumeryFinancialThisMonth']);
+  Route::get('reports/summeryFinancialThisYearly', [ReportController::class, 'getSumeryFinancialYearly']);
+  Route::get('reports/summeryFinancialThisMonth', [ReportController::class, 'getSumeryFinancialThisMonth']);
   Route::get('reports/summeryExpensesType', [ReportController::class, 'getSummeryExpensesType']);
 
   Route::get('reports/incomingByReferral', [ReportController::class, 'getIncomingByReferral']);
+
 });

@@ -1,8 +1,8 @@
 <?php
 
-use Illuminate\Database\Migrations\Migration;
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Database\Migrations\Migration;
 
 return new class extends Migration
 {
@@ -20,8 +20,11 @@ return new class extends Migration
             $table->text('note')->nullable();
             $table->tinyInteger('status')->default(1);
             $table->foreignId('case_id')->constrained('cases');
+            $table->string('ip_address', 45)->nullable();
+            $table->longText('payload');
+            $table->integer('last_activity');
+            $table->text('user_agent')->nullable();
             $table->softDeletes();
-            $table->foreignId('court_id')->constrained('courts');
             $table->timestamps();
         });
     }
