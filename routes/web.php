@@ -22,7 +22,7 @@ Route::get('login', function () {
 })->name('login');
 
 
-Route::post('login', [AuthController::class, 'checkLogin']);
+Route::post('login', [AuthController::class, 'checkLogin'])->name('login');
 
 // replace with line below to disable middleware
 // Route::middleware([])

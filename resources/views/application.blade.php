@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title> Ormano System - Legal solutions, tailored for you. </title>
   <link rel="stylesheet" type="text/css" href="{{ asset('loader.css') }}" />
-  @vite('resources/ts/main.ts')
+  @vite('/resources/ts/main.ts')
 </head>
 
 <body>
@@ -28,7 +28,7 @@
             fill="var(--initial-loader-color)" />
         </svg>
       </div>
-      <div class=" loading">
+      <div class="loading">
         <div class="effect-1 effects"></div>
         <div class="effect-2 effects"></div>
         <div class="effect-3 effects"></div>
